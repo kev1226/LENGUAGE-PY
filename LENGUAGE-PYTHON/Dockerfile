@@ -5,16 +5,16 @@ FROM python:3.10-slim
 WORKDIR /app
 
 # Copy the dependencies file
-COPY requirements.txt /app/
+COPY requirements.txt .
 
 # Install the dependencies
 RUN pip install -r requirements.txt
 
 # Copy the rest of the code into the container
-COPY src/ /app/src/
+COPY . .
 
 # Expose the port on which the application will run
 EXPOSE 8083
 
 # Command to run the application
-CMD ["python", "src/app.py"]
+CMD ["python", "app.py"]
